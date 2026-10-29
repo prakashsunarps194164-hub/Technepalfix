@@ -6,11 +6,12 @@
     <title>Pong Game</title>
     <style>
       :root {
-        --bg-dark: #0f172a;
-        --bg-panel: #111827;
-        --line: #e2e8f0;
-        --accent: #60a5fa;
-        --text: #f8fafc;
+        --bg-dark: #062d1d;
+        --bg-panel: #0d3b2d;
+        --line: #d0f9e5;
+        --accent: #6ee7b7;
+        --text: #f0fdf4;
+        --canvas-dark: #081f1a;
       }
 
       * {
@@ -22,14 +23,14 @@
         min-height: 100vh;
         display: grid;
         place-items: center;
-        background: radial-gradient(circle at center, #1e293b, var(--bg-dark));
+        background: radial-gradient(circle at center, #0d3b2d, var(--bg-dark));
         color: var(--text);
         font-family: Arial, Helvetica, sans-serif;
       }
 
       .game-shell {
-        background: rgba(15, 23, 42, 0.9);
-        border: 2px solid rgba(148, 163, 184, 0.3);
+        background: rgba(13, 59, 45, 0.9);
+        border: 2px solid rgba(110, 231, 183, 0.45);
         border-radius: 16px;
         padding: 20px 20px 12px;
         box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
@@ -44,6 +45,7 @@
         font-size: 2.2rem;
         font-weight: 700;
         letter-spacing: 0.08em;
+        color: var(--accent);
       }
 
       .scoreboard span {
@@ -55,9 +57,10 @@
         display: block;
         width: min(82vw, 800px);
         height: auto;
-        background: linear-gradient(180deg, #0b1120, #111827);
+        background: linear-gradient(180deg, var(--canvas-dark), #0d2e26);
         border: 2px solid var(--line);
         border-radius: 10px;
+        box-shadow: inset 0 0 18px rgba(110, 231, 183, 0.18);
       }
     </style>
   </head>
@@ -220,10 +223,10 @@
       function drawField() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        ctx.fillStyle = '#0b1120';
+        ctx.fillStyle = '#081f1a';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        ctx.strokeStyle = '#e2e8f0';
+        ctx.strokeStyle = '#d0f9e5';
         ctx.lineWidth = 2;
         ctx.setLineDash([12, 12]);
         ctx.beginPath();
@@ -232,13 +235,13 @@
         ctx.stroke();
         ctx.setLineDash([]);
 
-        ctx.fillStyle = '#f8fafc';
+        ctx.fillStyle = '#f0fdf4';
         ctx.fillRect(playerPaddle.x, playerPaddle.y, playerPaddle.width, playerPaddle.height);
         ctx.fillRect(computerPaddle.x, computerPaddle.y, computerPaddle.width, computerPaddle.height);
 
         ctx.beginPath();
         ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
-        ctx.fillStyle = '#60a5fa';
+        ctx.fillStyle = '#6ee7b7';
         ctx.fill();
       }
 
