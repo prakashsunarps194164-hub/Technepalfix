@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFix Nepal - इलेक्ट्रोनिक समस्या समाधान</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome Icons को लागि -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
 
+    <!-- Header Section -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1><i class="fa-solid fa-screwdriver-wrench"></i> Tech<span>Fix</span> Nepal</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">गृहपृष्ठ / Home</a></li>
+                    <li><a href="#categories">समस्याहरू / Categories</a></li>
+                    <li><a href="#about">हाम्रो बारेमा / About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero / Search Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>तपाईँको ल्यापटप, मोबाइल वा ग्याजेटमा के समस्या छ?</h2>
+            <p>Search solutions for your laptop, mobile, and electronic devices easily in Nepali and English.</p>
+            
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="समस्या खोज्नुहोस् (Search problem e.g., Battery, WiFi)..." onkeyup="searchProblems()">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content / Categories & Articles -->
+    <section class="main-content container" id="categories">
+        <h3 class="section-title">लोकप्रिय समस्या र समाधानहरू (Popular Solutions)</h3>
+        
+        <div class="grid-container" id="problemGrid">
+            
+            <!-- Problem Card 1 -->
+            <div class="card" data-title="mobile battery charging solution मोबाइल चार्ज समस्या">
+                <div class="card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                <div class="card-body">
+                    <span class="tag">Mobile / मोबाइल</span>
+                    <h4>मोबाइल चार्ज नभएमा के गर्ने? (Mobile Not Charging Fix)</h4>
+                    <p class="nep-text"><b>समस्या:</b> मोबाइलमा चार्ज ढिलो हुने वा चार्ज नै नटिप्ने।<br><b>समाधान:</b> पहिले चार्जर एडप्टर र केबल फेरेर हेर्नुहोला। पोर्टमा फोहोर जमेको छ भने सफा गर्नुहोस्।</p>
+                    <p class="eng-text"><b>Solution:</b> Check your charging cable and adapter. Clean the USB port gently using a soft brush.</p>
+                    <a href="#" class="read-more">थप पढ्नुहोस् / Read More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Problem Card 2 -->
+            <div class="card" data-title="laptop wifi not connecting ल्यापटप वाइफाइ समस्या">
+                <div class="card-icon"><i class="fa-solid fa-laptop"></i></div>
+                <div class="card-body">
+                    <span class="tag">Laptop / ल्यापटप</span>
+                    <h4>ल्यापटपमा वाइफाइ (WiFi) नचलेको कसरी बनाउने?</h4>
+                    <p class="nep-text"><b>समस्या:</b> ल्यापटपले वाई-फाई नेटवर्क नदेखाउने वा कनेक्ट नहुने।<br><b>समाधान:</b> नेटवर्क ड्राइभर अपडेट गर्नुहोस् वा राउटर रिस्टार्ट गरेर ल्यापटप पुनः चालु गर्नुहोस्।</p>
+                    <p class="eng-text"><b>Solution:</b> Restart your router and update network drivers from Device Manager.</p>
+                    <a href="#" class="read-more">थप पढ्नुहोस् / Read More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Problem Card 3 -->
+            <div class="card" data-title="bluetooth speaker sound issue ब्लुटुथ स्पिकर आवाज">
+                <div class="card-icon"><i class="fa-solid fa-volume-high"></i></div>
+                <div class="card-body">
+                    <span class="tag">Audio / स्पिकर</span>
+                    <h4>ब्लुटुथ स्पिकरबाट आवाज नआएमा के गर्ने?</h4>
+                    <p class="nep-text"><b>समस्या:</b> ब्लुटुथ कनेक्ट हुन्छ तर साउन्ड आउँदैन।<br><b>समाधान:</b> भोल्युम चेक गर्नुहोस् र डिभाइसलाई अनपेयर (Unpair) गरेर फेري कनेक्ट गर्नुहोस्।</p>
+                    <p class="eng-text"><b>Solution:</b> Check media volume, unpair the device from Bluetooth settings, and reconnect it.</p>
+                    <a href="#" class="read-more">थप पढ्नुहोस् / Read More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 TechFix Nepal. All Rights Reserved. | Designed for Easy Electronic Troubleshooting.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+                                                                                  </html>
+              
