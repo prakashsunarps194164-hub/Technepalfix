@@ -1,98 +1,861 @@
 <!DOCTYPE html>
 <html lang="ne">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechFix Nepal - इलेक्ट्रोनिक समस्या समाधान</title>
-    <meta name="description" content="TechFix Nepal offers easy troubleshooting guides for laptops, mobiles, WiFi, and electronic devices in Nepali and English.">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!DOCTYPE html>
+<html lang="ne">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechFix Nepal | Electronic Solutions</title>
+  <meta name="description" content="TechFix Nepal helps users find solutions for mobile, laptop, and electronic gadget problems in Nepali and English." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    :root{
+      --bg: #f4f7ff;
+      --bg-2: #eef4ff;
+      --primary: #2447ff;
+      --primary-2: #406dff;
+      --secondary: #1cc7a2;
+      --accent: #ff8f3d;
+      --dark: #0d1835;
+      --text: #1b2540;
+      --muted: #637196;
+      --card: rgba(255,255,255,0.88);
+      --shadow: 0 18px 45px rgba(28, 44, 99, 0.12);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", "Noto Sans Devanagari", sans-serif;
+      background: linear-gradient(180deg, var(--bg) 0%, #ebf1ff 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(244, 247, 255, 0.82);
+      border-bottom: 1px solid rgba(36,71,255,0.08);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 82px;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: clamp(1.2rem, 2vw, 1.8rem);
+      color: var(--dark);
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: white;
+      box-shadow: 0 12px 25px rgba(36,71,255,0.25);
+    }
+
+    .brand span { color: var(--primary); }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .nav a {
+      position: relative;
+      transition: 0.3s ease;
+    }
+
+    .nav a:hover, .nav a.active {
+      color: var(--dark);
+    }
+
+    .nav a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 999px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      background: #edf2ff;
+      border: 1px solid rgba(36,71,255,0.08);
+      padding: 5px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .lang-btn {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 10px 14px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: 0.25s ease;
+    }
+
+    .lang-btn.active {
+      background: white;
+      color: var(--primary);
+      box-shadow: 0 8px 20px rgba(36,71,255,0.12);
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      border: none;
+      color: white;
+      font-weight: 700;
+      border-radius: 14px;
+      padding: 12px 18px;
+      cursor: pointer;
+      box-shadow: 0 12px 25px rgba(36,71,255,0.25);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 30px rgba(36,71,255,0.28);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 54px 0 38px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle at center, rgba(36,71,255,0.12), transparent 68%);
+      filter: blur(10px);
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(36,71,255,0.08);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--secondary);
+      box-shadow: 0 0 0 6px rgba(28,199,162,0.12);
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.5rem, 4vw, 4.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.06em;
+      color: var(--dark);
+    }
+
+    .hero-copy p {
+      margin: 0 0 28px;
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 580px;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: white;
+      border: 1px solid rgba(36,71,255,0.1);
+      border-radius: 16px;
+      padding: 12px;
+      box-shadow: var(--shadow);
+      max-width: 660px;
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      padding: 12px 16px;
+      font-size: 1rem;
+      outline: none;
+      background: transparent;
+      color: var(--text);
+      font-family: inherit;
+    }
+
+    .search-box input::placeholder {
+      color: #7f8eb3;
+    }
+
+    .search-btn {
+      border: none;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: white;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      font-size: 1.05rem;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(36,71,255,0.22);
+    }
+
+    .quick-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+      max-width: 660px;
+    }
+
+    .tag {
+      border: 1px solid rgba(36,71,255,0.1);
+      background: rgba(255,255,255,0.8);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+      font-weight: 600;
+    }
+
+    .tag:hover {
+      color: var(--primary);
+      border-color: rgba(36,71,255,0.2);
+      transform: translateY(-1px);
+    }
+
+    .visual-wrap {
+      position: relative;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .orb {
+      position: absolute;
+      width: 440px;
+      height: 440px;
+      background: radial-gradient(circle, rgba(75,110,255,0.16), rgba(255,255,255,0));
+      border-radius: 50%;
+      filter: blur(2px);
+    }
+
+    .device {
+      position: absolute;
+      border-radius: 28px;
+      background: linear-gradient(145deg, #ffffff, #eaf2ff);
+      border: 1px solid rgba(148, 169, 220, 0.24);
+      box-shadow: 0 28px 50px rgba(24,45,98,0.14);
+    }
+
+    .laptop {
+      width: min(510px, 82%);
+      height: 280px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -52%) rotate(-2deg);
+      animation: floatY 6s ease-in-out infinite;
+    }
+
+    .laptop::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      top: 16px;
+      height: 180px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #1a253f, #2a3b6d 52%, #1b3e69);
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+    }
+
+    .laptop::after {
+      content: "";
+      position: absolute;
+      left: 30%;
+      right: 30%;
+      bottom: -18px;
+      height: 14px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #d7e1f5, #ccd9f8);
+      box-shadow: 0 12px 0 rgba(0,0,0,0.02);
+    }
+
+    .screen-content {
+      position: absolute;
+      inset: 22px 34px 26px 34px;
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02)),
+        linear-gradient(180deg, rgba(101,128,255,0.35), rgba(33,41,90,0.15));
+      overflow: hidden;
+    }
+
+    .screen-content .bar {
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      height: 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+    }
+
+    .screen-content .bar:nth-child(1) { top: 24px; width: 44%; }
+    .screen-content .bar:nth-child(2) { top: 48px; width: 62%; }
+    .screen-content .bar:nth-child(3) { top: 72px; width: 58%; }
+
+    .screen-pills {
+      position: absolute;
+      right: 26px;
+      top: 20px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .screen-pills span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.8);
+      opacity: 0.8;
+    }
+
+    .phone {
+      position: absolute;
+      width: 160px;
+      height: 300px;
+      right: 24px;
+      bottom: 40px;
+      border-radius: 30px;
+      background: linear-gradient(160deg, #ffffff, #edf3ff);
+      animation: floatYPhone 7s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    .phone::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #0d1835, #213a76);
+      overflow: hidden;
+    }
+
+    .phone::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 16px;
+      transform: translateX(-50%);
+      width: 78px;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+    }
+
+    .phone-screen {
+      position: absolute;
+      inset: 30px 22px 18px 22px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
+    }
+
+    .phone-screen .mini-chart {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, rgba(67,210,181,0.9), rgba(36,71,255,0.7));
+      transform: skewY(-6deg);
+      box-shadow: 0 12px 22px rgba(36,71,255,0.18);
+    }
+
+    .floating-card {
+      position: absolute;
+      left: 54px;
+      bottom: 52px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(36,71,255,0.08);
+      box-shadow: var(--shadow);
+      z-index: 3;
+      color: var(--dark);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .floating-card span {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .floating-card strong {
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    .stats-row {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .stat {
+      min-width: 145px;
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(36,71,255,0.08);
+      border-radius: 16px;
+      box-shadow: 0 10px 24px rgba(29,41,80,0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .section {
+      padding: 42px 0 28px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 26px;
+    }
+
+    .kicker {
+      margin: 0 0 10px;
+      color: var(--primary);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 2.2vw, 2.7rem);
+      letter-spacing: -0.05em;
+      color: var(--dark);
+    }
+
+    .mini-link {
+      font-weight: 700;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 20px;
+    }
+
+    .category-card {
+      position: relative;
+      padding: 26px 22px 20px;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(36,71,255,0.07);
+      border-radius: 22px;
+      box-shadow: 0 12px 28px rgba(23,39,84,0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .category-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px rgba(23,39,84,0.12);
+    }
+
+    .category-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .category-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, rgba(36,71,255,0.12), rgba(28,199,162,0.12));
+      margin-bottom: 18px;
+    }
+
+    .category-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.18rem;
+      color: var(--dark);
+      letter-spacing: -0.04em;
+    }
+
+    .category-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .solutions-wrap {
+      display: block;
+    }
+
+    .solution-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .solution-item {
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(36,71,255,0.08);
+      border-radius: 22px;
+      box-shadow: 0 16px 30px rgba(18,30,70,0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .solution-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 20px 0;
+      gap: 16px;
+    }
+
+    .issue-name {
+      font-size: 1.22rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin: 0;
+      color: var(--dark);
+    }
+
+    .issue-type {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(36,71,255,0.08);
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .solution-body {
+      padding: 16px 20px 18px;
+      flex: 1;
+    }
+
+    .solution-body p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .issue-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 0 20px 20px;
+      list-style: none;
+      margin: 0;
+    }
+
+    .issue-steps li {
+      padding: 7px 10px;
+      border-radius: 10px;
+      background: rgb(244, 247, 255);
+      border: 1px solid rgba(36,71,255,0.08);
+      color: var(--text);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .no-results {
+      display: none;
+      padding: 42px 22px;
+      text-align: center;
+      background: rgba(255,255,255,0.9);
+      border: 1px dashed rgba(36,71,255,0.16);
+      border-radius: 20px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 22px;
+    }
+
+    .work-item {
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(238,244,255,0.9));
+      border: 1px solid rgba(36,71,255,0.08);
+      border-radius: 22px;
+      padding: 26px 22px;
+      box-shadow: 0 14px 28px rgba(24,42,88,0.08);
+    }
+
+    .work-number {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: white;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .work-item h3 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      letter-spacing: -0.04em;
+      color: var(--dark);
+    }
+
+    .work-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .cta-panel {
+      margin-top: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 28px 30px;
+      background: linear-gradient(135deg, rgba(36,71,255,0.96), rgba(32,100,255,0.97));
+      border-radius: 26px;
+      color: white;
+      box-shadow: 0 22px 40px rgba(36,71,255,0.26);
+    }
+
+    .cta-panel h3 {
+      margin: 0 0 6px;
+      font-size: clamp(1.4rem, 2vw, 2.1rem);
+      letter-spacing: -0.05em;
+    }
+
+    .cta-panel p {
+      margin: 0;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+    }
+
+    footer {
+      padding: 28px 0 60px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      border-top: 1px solid rgba(36,71,255,0.10);
+      padding-top: 22px;
+    }
+
+    @keyframes floatY {
+      0%, 100% { transform: translate(-50%, -52%) rotate(-2deg); }
+      50% { transform: translate(-50%, -58%) rotate(-1deg); }
+    }
+
+    @keyframes floatYPhone {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-wrap {
+        min-height: 420px;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+
+      .solution-list {
+        grid-template-columns: 1fr;
+      }
+
+      .works-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-panel {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        display: none;
+      }
+
+      .header-actions {
+        gap: 10px;
+      }
+
+      .search-box {
+        flex-wrap: wrap;
+        padding: 12px;
+      }
+
+      .search-box input {
+        width: 100%;
+      }
+
+      .search-btn {
+        width: 100%;
+        height: 48px;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <h1><i class="fa-solid fa-screwdriver-wrench"></i> Tech<span>Fix</span> Nepal</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#" class="active">गृहपृष्ठ / Home</a></li>
-                    <li><a href="#categories">समस्याहरू / Categories</a></li>
-                    <li><a href="#about">हाम्रो बारेमा / About</a></li>
-                </ul>
-            </nav>
+  <header class="topbar">
+    <div class="container nav-wrap">
+      <div class="brand" aria-label="TechFix Nepal">
+        <div class="brand-mark"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+        <div>Tech<span>Fix</span> Nepal</div>
+      </div>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a class="active" href="#" data-i18n="nav_home">गृहपृष्ठ / Home</a>
+        <a href="#categories" data-i18n="nav_categories">समस्याहरू / Categories</a>
+        <a href="#about" data-i18n="nav_about">हाम्रो बारेमा / About</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switch" aria-label="Language selector">
+          <button class="lang-btn active" type="button" data-lang="np">नेपाली</button>
+          <button class="lang-btn" type="button" data-lang="en">English</button>
         </div>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <h2>तपाईँको ल्यापटप, मोबाइल वा ग्याजेटमा के समस्या छ?</h2>
-            <p>Search solutions for your laptop, mobile, and electronic devices easily in Nepali and English.</p>
-
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="समस्या खोज्नुहोस् (Search problem e.g., Battery, WiFi)..." aria-label="Search problems">
-                <button type="button" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
-        </div>
-    </section>
-
-    <main class="main-content container" id="categories">
-        <h3 class="section-title">लोकप्रिय समस्या र समाधानहरू (Popular Solutions)</h3>
-
-        <div class="grid-container" id="problemGrid">
-            <article class="card" data-title="mobile battery charging solution मोबाइल चार्ज समस्या">
-                <div class="card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                <div class="card-body">
-                    <span class="tag">Mobile / मोबाइल</span>
-                    <h4>मोबाइल चार्ज नभएमा के गर्ने? (Mobile Not Charging Fix)</h4>
-                    <p class="nep-text"><b>समस्या:</b> मोबाइलमा चार्ज ढिलो हुने वा चार्ज नै नटिप्ने।</p>
-                    <p class="eng-text"><b>Solution:</b> Check your charging cable and adapter. Clean the USB port gently using a soft brush and restart the phone after a few minutes.</p>
-                    <a href="#" class="read-more">थप पढ्नुहोस् / Read More <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </article>
-
-            <article class="card" data-title="laptop wifi not connecting ल्यापटप वाइफाइ समस्या">
-                <div class="card-icon"><i class="fa-solid fa-laptop"></i></div>
-                <div class="card-body">
-                    <span class="tag">Laptop / ल्यापटप</span>
-                    <h4>ल्यापटपमा वाइफाइ (WiFi) नचलेको कसरी बनाउने?</h4>
-                    <p class="nep-text"><b>समस्या:</b> ल्यापटपले वाइफाई नेटवर्क नदेखाउने वा कनेक्ट नहुनु।</p>
-                    <p class="eng-text"><b>Solution:</b> Restart your router, update the network driver, and forget/reconnect to the WiFi network.</p>
-                    <a href="#" class="read-more">थप पढ्नुहोस् / Read More <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </article>
-
-            <article class="card" data-title="bluetooth speaker sound issue ब्लुटुथ स्पिकर आवाज">
-                <div class="card-icon"><i class="fa-solid fa-volume-high"></i></div>
-                <div class="card-body">
-                    <span class="tag">Audio / स्पिकर</span>
-                    <h4>ब्लुटुथ स्पिकरबाट आवाज नआएमा के गर्ने?</h4>
-                    <p class="nep-text"><b>समस्या:</b> ब्लुटुथ कनेक्ट हुन्छ तर साउन्ड आउँदैन।</p>
-                    <p class="eng-text"><b>Solution:</b> Check media volume, unpair the speaker, and reconnect it from Bluetooth settings.</p>
-                    <a href="#" class="read-more">थप पढ्नुहोस् / Read More <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </article>
-        </div>
-
-        <div id="noResults" class="no-results hidden">No matching solutions found. Try searching for battery, WiFi, or sound.</div>
-    </main>
-
-    <section id="about" class="about-section">
-        <div class="container about-content">
-            <div>
-                <span class="section-tag">About Us / हाम्रो बारेमा</span>
-                <h3>तपाईंको टेक समस्या उजागर गर्न सहयोग गर्ने प्लेटफर्म</h3>
-            </div>
-            <p>TechFix Nepal helps people find practical troubleshooting tips for common electronic issues in simple Nepali and English language. We focus on fast solutions for everyday devices.</p>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container footer-content">
-            <p>&copy; 2026 TechFix Nepal. All Rights Reserved. | Designed for Easy Electronic Troubleshooting.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+        <button class="cta-btn" type="button"><i class="fa-solid fa-headset"></i> <span data-i18n="nav_help">Help Now</span></butto
